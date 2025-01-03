@@ -23,18 +23,49 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 ![image](https://github.com/naavaneetha/4-BIT-RIPPLE-COUNTER/assets/154305477/85e1958a-2fc1-49bb-9a9f-d58ccbf3663c)
 
 **Procedure**
+1.Compile and run the program.
 
+2.Generate the RTL schematic and save the logic diagram.
+
+3.Create nodes for inputs and outputs to generate the timing diagram.
+
+4.For different input combinations generate the timing diagram
 /* write all the steps invloved */
 
 **PROGRAM**
+```
+ module DE12(
+ input wire clk,  // Clock input
+ output reg [3:0] count // 4-bit counter output
+ );
+ // Counter logic
+ always @(posedge clk) begin
+ if (count == 4'b1111) // Reset when count reaches 15
+ count <= 4'b0000;
+ else
+ count <= count + 1; // Increment count
+ end
+ endmodule
+```
 
 /* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
 
- Developed by: RegisterNumber:
+ Developed by: ANNIE ANJANA A RegisterNumber: 24010978
 */
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
+![image](https://github.com/user-attachments/assets/487832ca-7e0a-4519-b8b0-c78edec08525)
 
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
+![image](https://github.com/user-attachments/assets/75e692db-33af-4f17-ae32-3f1df8b908d5)
+
 
 **RESULTS**
+The 4-bit ripple counter was successfully implemented using Verilog in
+ Quartus Prime. The functionality was verified using a testbench, which simulated the
+ counter's operation. The counter correctly counted from 0000 to 1111, incrementing
+ by 1 on each clock pulse. After reaching 1111, the counter reset to 0000, as
+ expected. The timing diagrams and the functional table showed that the ripple
+ counter operated as intended, with each flip-flop toggling on the rising edge of the
+ previous flip-flop's output. The simulation results confirmed the correct operation of
+ the 4-bit ripple counter
